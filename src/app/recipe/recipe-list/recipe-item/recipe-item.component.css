@@ -1,0 +1,10 @@
+.inject-shadow {
+  position: relative;
+}
+
+.active1{
+  transform: translate(5px);
+  z-index: 1;
+  box-shadow: 20px 10px 40px rgb(175, 175, 175);
+  transition: ease-in-out 300ms;
+}

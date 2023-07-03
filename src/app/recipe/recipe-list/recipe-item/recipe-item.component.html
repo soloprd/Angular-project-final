@@ -1,0 +1,22 @@
+<div class="list-group inject-shadow" >
+    <a style="cursor: pointer;" routerLinkActive="active1"
+        routerLinkActiveOptions="{exact:true}"
+        class="list-group-item clearfix">
+        <div class="float-start col-sm-6">
+            <h4 class="list-group-item-heading fw-semibold text-capitalize">
+                {{ recipeItems.name }}
+            </h4>
+            <p class="list-group-item-text d-flex link-secondary">
+                {{ recipeItems.description }}
+            </p>
+        </div>
+        <span class="float-end">
+            <img
+                alt="food"
+                [src]="recipeItems.imagePath"
+                class="img-fluid rounded-1 mt-1 p-1 mt-1 shadow"
+                style="max-height: 200px; width: 200px"
+                />
+        </span>
+    </a>
+</div>

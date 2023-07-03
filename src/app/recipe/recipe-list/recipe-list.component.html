@@ -1,0 +1,13 @@
+<div class="row mt-2">
+  <div class="col mt-2">
+    <button class="btn btn-success fw-semibold" [routerLink]="['/recipes','new']">Add
+      New Recipe</button>
+  </div>
+  <hr/>
+  <div class="row col-sm-12">
+    <app-recipe-item *ngFor="let item of recipes; let i=index"
+      [routerLink]="['/recipes',i,item.name]" (storeItemData)="sendDataUp()"
+      [recipeItems]="item"></app-recipe-item>
+    <!-- <app-recipe-item  *ngFor="let item of recipes" [recipeItems]="item"></app-recipe-item> -->
+  </div>
+</div>

@@ -1,0 +1,118 @@
+<div class="container mtop fw-semibold">
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="form-group">
+                <div class="col-xs-12 ">
+                    <label for="name">Name</label>
+                    <input class="form-control" formControlName="name"
+                        type="text"
+                        placeholder="Enter Name" id="name" #nameValue>
+                    <span class="valid" *ngIf="recipeForm.get('name').valid">
+                        Looks good!
+                    </span>
+                    <span *ngIf="recipeForm.get('name').invalid &&
+                        recipeForm.get('name').touched">
+                        <span *ngIf="recipeForm.get('name').errors['required']">
+                            Name is required!
+                        </span>
+                    </span>
+                </div>
+            </div> 
+        </div>
+        <div class="row mt-2">
+            <div class="form-group">
+                <div class="col-xs-12 form-group">
+                    <label for="imagePath">Image URL</label>
+                    <input class="form-control" formControlName="imagePath"
+                        placeholder="Enter URL"
+                        type="text" id="imagePath" #imagePath>
+                    <span class="valid"
+                        *ngIf="recipeForm.get('imagePath').valid">
+                        Looks good!
+                    </span>
+                    <span *ngIf="recipeForm.get('imagePath').invalid &&
+                        recipeForm.get('imagePath').touched">
+                        <span
+                            *ngIf="recipeForm.get('imagePath').errors['required']">
+                            The image path is required! v
+                        </span>
+                    </span>
+                </div>
+            </div> 
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <img style="width:25rem; height:20rem" [alt]="nameValue.value"
+                    [src]="imagePath.value" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <label class="mt-2" for="description">Description</label>
+                <textarea formControlName="description" class="form-control"
+                    id="description" placeholder="write description..."
+                    rows="6"></textarea>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-12" formArrayName="ingredient">
+                <div class="row" *ngFor="let ingredientCtrl of controls; let
+                    i=index" [formGroupName]="i">
+                    <div class="col-sm-9 mb-1">
+                        <input required placeholder="Ingredient"
+                            formControlName="name"
+                            class="form-control"
+                            type="text">
+                        <!-- <span
+                            *ngIf="ctrlsHandling.ctrlNameValidity && ctrlsHandling.ctrlNameTouched">
+                            
+                                The image path is required!
+                            
+                        </span> -->
+                        <span
+                            *ngIf="ingredientCtrl.get('name').invalid &&
+                            ingredientCtrl.get('name').touched">
+
+                            The Ingredient is required!
+
+                        </span>
+                    </div>
+                    <div class="col-sm-2">
+                        <input required class="form-control" placeholder="0"
+                            type="number" formControlName="amount">
+                        <!-- <span
+                            *ngIf="ctrlsHandling.ctrlAmountValidity && ctrlsHandling.ctrlAmountTouched">
+                                The Amount is required!
+                        </span> -->
+                        <span
+                            *ngIf="ingredientCtrl.get('amount').invalid &&
+                            ingredientCtrl.get('amount').touched">
+
+                            required!
+
+                        </span>
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-danger fw-semibold"
+                            (click)="onDeleteIngredientControls(i)"
+                            type="button">x</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 mt-4">
+                        <button type="button" (click)="onAddIngredients()"
+                            class="btn btn-primary">Add ingredient</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-sm-12">
+                <button class="btn btn-success fw-semibold"
+                    type="submit" [disabled]="!recipeForm.valid">Save</button>
+                <button class="btn btn-danger fw-semibold m-1"
+                    (click)="onCancel()" type="button">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>

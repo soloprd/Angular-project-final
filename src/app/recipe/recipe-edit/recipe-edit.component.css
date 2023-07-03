@@ -1,0 +1,21 @@
+.mtop {
+  margin-top: 3.8rem;
+  margin-left: 5rem;
+}
+label {
+  margin-top: 0.5rem;
+}
+span {
+  color: red;
+}
+input.ng-invalid,
+textarea.ng-invalid {
+  border: 1px solid red;
+}
+.valid {
+  color: green;
+}
+input.ng-valid,
+textarea.ng-valid {
+  border: 1px solid green;
+}

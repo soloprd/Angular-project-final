@@ -1,0 +1,11 @@
+<!-- <app-header (selectedFeature)="getSelectedFeature($event)"></app-header> -->
+<app-header></app-header>
+<div class="container font-weight-bold">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- <app-recipe *ngIf="recievedFeature === 'recipe'"></app-recipe> -->
+      <!-- <app-shopping-list *ngIf="recievedFeature !== 'recipe'"></app-shopping-list> -->
+      <router-outlet></router-outlet>
+    </div>
+  </div> 
+</div>

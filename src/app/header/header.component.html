@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-sm fw-semibold bg-light navbar-light border
+  border-opacity-50">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#" [routerLink]="['/recipes']" class="navbar-brand fw-bold
+        text-secondary">Recipe Book</a>
+    </div>
+    <button
+      title="btn"
+      type="button"
+      class="navbar-toggler"
+      data-bs-toggle="toggle"
+      data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item border-end border-2" *ngIf="isAuthenticated"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}">
+          <a href="#"
+            [routerLink]="['/recipes']"
+            class="nav-link ">Recipes</a>
+        </li>
+        <li class="nav-item border-end border-2">
+          <a href="#" routerLinkActive="active"
+            [routerLink]="['/shopping']" class="nav-link">Shopping</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAuthenticated" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/auth']" style="cursor: pointer;">Sign
+            Up | Login</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav navbar-right ms-auto">
+
+        <li class="nav-item dropdown" *ngIf="isAuthenticated" id="dropdown"
+          appDropdown>
+          <a
+            (click)="navCondition=!navCondition"
+            class="nav-link dropdown-toggle"
+            role="button">Dropdown</a>
+          <ul class="dropdown-menu"
+            aria-labelledby="btnGroupDrop1">
+            <li><a (click)="onSaveData()" class="dropdown-item a i">Save Data</a></li>
+            <li><a (click)="fetchData()" class="dropdown-item">Fetch Data</a></li>
+            <li><a (click)="onLogOut()" class=" dropdown-item">Log Out
+                <app-user-svg></app-user-svg> </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
