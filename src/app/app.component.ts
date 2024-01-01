@@ -16,5 +16,5 @@ export class AppComponent implements OnInit {
   }
   getSelectedFeature(gotFeature: string) {
     this.recievedFeature = gotFeature;
-  }
+  }    
 }

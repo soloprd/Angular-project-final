@@ -14,29 +14,29 @@ import { AuthService, responseDataa } from "./auth.service";
 })
 export class AuthComponent implements OnDestroy {
   isLogedin = false;
-  isLoading = false;
+  isLoading = false; 
   error: any = null;
   success: any = null;
   public closeSub: Subscription;
   @ViewChild(PlaceHolderDirective) alertHost: PlaceHolderDirective;
   @ViewChild("formRef") authForm: NgForm;
   constructor(private authService: AuthService, private router: Router) {}
-  onSwitch() {
+  onSwitch() { 
     this.isLogedin = !this.isLogedin;
   }
-  onSubmit() {
+  onSubmit() { 
     if (!this.authForm.valid) {
-      return;
+      return; 
     }
     console.log(this.authForm);
     const values = {
       email: this.authForm.value.email,
-      password: this.authForm.value.password,
+      password: this.authForm.value.password, 
       returnSecureToken: true
-    };
+    }; 
     this.isLoading = true;
     let authObs: Observable<responseDataa>;
-
+    
     if (this.isLogedin) {
       // this.authService.signUp(values).subscribe({
       //   next: responseData => console.log(responseData),

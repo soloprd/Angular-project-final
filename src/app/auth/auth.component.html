@@ -13,12 +13,12 @@
                 <span style="color: red;" *ngIf="emailRef.touched &&
                     emailRef.invalid">Please enter Valid Email Adress!</span>
             </div>
-
+ 
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">Password</label>  
                 <input type="password" id="password" class="form-control"
                     name="password" #passRef="ngModel" minlength="8" ngModel
-                    required>
+                    required> 
                 <span style="color: red;" *ngIf="passRef.touched &&
                     passRef.invalid">Please enter Valid password!</span>
             </div>
